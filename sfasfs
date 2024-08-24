@@ -1,0 +1,13 @@
+else if(parsed_url.pathname === '/submit' && req.method === 'POST'){
+        console.log("reached......")
+
+        let body='';
+        
+        req.on('data',(chunks)=> {
+            console.log("chunks",chunks);
+
+            body = body + chunks.toString();
+            console.log(body)
+        });
+
+    }

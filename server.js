@@ -22,17 +22,9 @@ const server = http.createServer((req,res)=>{
     else if(parsed_url.pathname === '/style.css'){
         res.writeHead(200,{'content-type': 'text/css'})
         res.end(dhanu.readFileSync('./style.css'))
-    }else if(parsed_url.pathname === '/submit' && req.method === 'POST'){
-        console.log("reached......")
-
-        let body='';
-        
-        req.on('data',(chunks)=> {
-            console.log("chunks",chunks);
-
-            body = body + chunks.toString();
-            console.log(body)
-        });
+    }else if (parsed_url.pathname === 'server1'){
+        res.writeHead(200,{'Content-Type':'text/json'});
+        res.end(dhanu.readFileSync('index.html'));
 
     }
 })
